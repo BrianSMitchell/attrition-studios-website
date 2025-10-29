@@ -21,22 +21,8 @@ export default function Hero() {
       <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}>
-        {/* Logo */}
-        <div className="mb-8 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
-            <Image
-              src="/images/logo.png"
-              alt="Attrition Studios Logo"
-              width={320}
-              height={320}
-              priority
-              className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-        </div>
-
         {/* Company Name */}
-        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent">
+        <h2 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent mt-20">
           Attrition Studios
         </h2>
 
@@ -69,6 +55,17 @@ export default function Hero() {
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </div>
+      </div>
+
+      {/* Logo Watermark - Bottom Right */}
+      <div className="absolute bottom-8 right-8 z-20 opacity-40 hover:opacity-60 transition-opacity duration-300">
+        <Image
+          src="/images/logo.png"
+          alt="Attrition Studios"
+          width={120}
+          height={120}
+          className="w-24 h-24 md:w-32 md:h-32 object-contain"
+        />
       </div>
 
       {/* Additional glow effects */}
