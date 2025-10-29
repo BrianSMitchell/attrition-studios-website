@@ -23,11 +23,19 @@ export default function Hero() {
       }`}>
         {/* Logo */}
         <div className="mb-8 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 animate-pulse-slow">
-            {/* You'll add the logo image here */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-purple to-neon-pink opacity-20 blur-3xl"></div>
-            <div className="relative">
-              <h1 className="text-8xl md:text-9xl font-bold neon-glow-cyan">A</h1>
+          <div className="relative w-72 h-72 md:w-96 md:h-96">
+            {/* Glow effect behind logo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-purple to-neon-pink opacity-30 blur-3xl animate-pulse-slow"></div>
+            {/* Logo image */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src="/images/logo.png"
+                alt="Attrition Studios Logo"
+                width={384}
+                height={384}
+                priority
+                className="drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>
