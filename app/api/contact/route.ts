@@ -27,8 +27,8 @@ export async function POST(request: Request) {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Attrition Studios Website <onboarding@resend.dev>', // Replace with your verified domain
-      to: ['your-email@example.com'], // Replace with your email
+      from: 'Attrition Studios <contact@attritionstudios.com>',
+      to: ['attritionstudios@proton.me'],
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
