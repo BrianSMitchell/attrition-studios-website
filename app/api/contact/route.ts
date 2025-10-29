@@ -47,8 +47,17 @@ export async function POST(request: Request) {
     });
     console.log('Email sent successfully:', data);
 
+    // Check if Resend returned an error
+    if (data.error) {
+      console.error('Resend API error:', data.error);
+      return NextResponse.json(
+        { error: data.error.message || 'Failed to send email' },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json(
-      { message: 'Email sent successfully', data },
+      { message: 'Email sent successfully', id: data.data?.id },
       { status: 200 }
     );
   } catch (error: any) {
