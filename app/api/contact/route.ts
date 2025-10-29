@@ -4,9 +4,11 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
+  console.log('Contact form API called');
   try {
     const body = await request.json();
     const { name, email, company, message } = body;
+    console.log('Form data received:', { name, email, company, messageLength: message?.length });
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -26,6 +28,7 @@ export async function POST(request: Request) {
     }
 
     // Send email using Resend
+    console.log('Attempting to send email via Resend...');
     const data = await resend.emails.send({
       from: 'Attrition Studios <contact@attritionstudios.com>',
       to: ['attritionstudios@proton.me'],
@@ -42,6 +45,7 @@ export async function POST(request: Request) {
         <p><small>Sent from Attrition Studios website contact form</small></p>
       `,
     });
+    console.log('Email sent successfully:', data);
 
     return NextResponse.json(
       { message: 'Email sent successfully', data },
@@ -49,6 +53,7 @@ export async function POST(request: Request) {
     );
   } catch (error: any) {
     console.error('Error sending email:', error);
+    console.error('Error details:', JSON.stringify(error, null, 2));
     return NextResponse.json(
       { error: 'Failed to send email', details: error.message },
       { status: 500 }
