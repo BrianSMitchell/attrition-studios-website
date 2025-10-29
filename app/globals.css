@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a14;
+  --foreground: #ededed;
+  --neon-cyan: #00d9ff;
+  --neon-pink: #ff006e;
+  --neon-purple: #8b5cf6;
+  --space-blue: #1a1f3a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-pink: var(--neon-pink);
+  --color-neon-purple: var(--neon-purple);
+  --color-space-blue: var(--space-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Neon glow effects */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px var(--neon-cyan),
+               0 0 20px var(--neon-cyan),
+               0 0 30px var(--neon-cyan);
+}
+
+.neon-glow-pink {
+  text-shadow: 0 0 10px var(--neon-pink),
+               0 0 20px var(--neon-pink),
+               0 0 30px var(--neon-pink);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 10px var(--neon-purple),
+               0 0 20px var(--neon-purple),
+               0 0 30px var(--neon-purple);
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Starfield background */
+.stars-container {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60px 70px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 50px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 10px, white, rgba(0,0,0,0));
+  background-size: 200px 200px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  animation: stars 20s linear infinite;
+}
+
+@keyframes stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
 }
