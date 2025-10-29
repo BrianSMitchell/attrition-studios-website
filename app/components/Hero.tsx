@@ -23,20 +23,15 @@ export default function Hero() {
       }`}>
         {/* Logo */}
         <div className="mb-8 flex justify-center">
-          <div className="relative w-72 h-72 md:w-96 md:h-96">
-            {/* Glow effect behind logo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan via-neon-purple to-neon-pink opacity-30 blur-3xl animate-pulse-slow"></div>
-            {/* Logo image */}
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src="/images/logo.png"
-                alt="Attrition Studios Logo"
-                width={384}
-                height={384}
-                priority
-                className="drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <Image
+              src="/images/logo.png"
+              alt="Attrition Studios Logo"
+              width={320}
+              height={320}
+              priority
+              className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+            />
           </div>
         </div>
 
