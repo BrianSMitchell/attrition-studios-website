@@ -11,6 +11,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Word Search Puzzle",
+    description: "A clean, modern web application for playing and generating word search puzzles. Features interactive gameplay, a custom puzzle generator, and optimized printable layouts for educational use.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Interactive UI"],
+    link: "https://word-search-puzzle.com/",
+    status: "Live",
+    category: "Web Development"
+  },
+  {
     title: "Echo Valley Winery Website",
     description: "A modern, responsive website for a Kentucky winery and restaurant featuring online reservations, menu showcase, and event management. Built to increase online visibility and streamline customer bookings.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Responsive Design"],
@@ -49,7 +57,7 @@ export default function Projects() {
     <section id="projects" className="py-24 px-6 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] via-space-blue to-[#0a0a14] opacity-50"></div>
-      
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -70,13 +78,12 @@ export default function Projects() {
             >
               {/* Status badge */}
               <div className="absolute top-4 right-4">
-                <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                  project.status === 'Live' 
-                    ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                <span className={`px-3 py-1 text-xs font-semibold rounded-full ${project.status === 'Live'
+                    ? 'bg-green-500/20 text-green-400 border border-green-500/30'
                     : project.status === 'In Development'
-                    ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-                    : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                }`}>
+                      ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                      : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                  }`}>
                   {project.status}
                 </span>
               </div>
